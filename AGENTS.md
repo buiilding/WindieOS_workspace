@@ -20,7 +20,7 @@ Work style: telegraph; noun-phrases ok; drop grammar; min tokens.
 - Context: always read "Agents.md" file if it exists in other codebases.
 
 ## Docs
-- Start: run docs list (`bin/docs-list` script here if present; ignore if not installed); open docs before coding.
+- Start: run docs list (`scripts/docs-list` script if present in some codebases; ignore if not installed); open docs before coding.
 - Follow links until domain makes sense; honor `Read when` hints.
 - Keep notes short; update docs when behavior/API changes (no ship w/o docs).
 - Add `read_when` hints on cross-cutting docs.
