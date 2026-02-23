@@ -1,9 +1,9 @@
-# AGENTS.MD
+# AGENTS.md
 tart: say hi + 1 motivating line.
 Work style: telegraph; noun-phrases ok; drop grammar; min tokens.
 
 ## Agent Protocol
-- Workspace: `/mnt/E/Assistants`.
+- Workspace: `/mnt/E/Assistants/WindieOS_workspace`.
 - PRs: use `gh pr view/diff` (no URLs).
 - “Make a note” => edit AGENTS.md (shortcut; not a blocker). Ignore `CLAUDE.md`.
 - Need upstream file: stage in `/tmp/`, then cherry-pick; never overwrite tracked.
@@ -61,6 +61,7 @@ Work style: telegraph; noun-phrases ok; drop grammar; min tokens.
   - bullets: what changed, where wired, tests added
 - Always double-check `git status` before any commit.
 - Keep commits atomic: commit only the files you touched and list each path explicitly. For tracked files run `git commit -m "<scoped message>" -- path/to/file1 path/to/file2`. For brand-new files, use the one-liner `git restore --staged :/ && git add "path/to/file1" "path/to/file2" && git commit -m "<scoped message>" -- path/to/file1 path/to/file2`.
+- Default commit behavior: auto-commit after each completed logical change; do not wait for user prompt.
 - Quote any git paths containing brackets or parentheses (e.g., `src/app/[candidate]/**`) when staging or committing so the shell does not treat them as globs or subshells.
 - When running git rebase, avoid opening editors; export `GIT_EDITOR=:` and `GIT_SEQUENCE_EDITOR=:` (or pass `--no-edit`) so the default messages are used automatically.
 - Never amend commits unless you have explicit written approval in the task thread.
