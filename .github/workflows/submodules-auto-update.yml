@@ -1,0 +1,44 @@
+name: Auto Update Submodules
+
+on:
+  schedule:
+    - cron: "0 7 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: auto-update-submodules
+  cancel-in-progress: false
+
+jobs:
+  update-submodules:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          submodules: recursive
+
+      - name: Configure Git
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+      - name: Update submodules to tracked branches
+        run: |
+          git submodule sync --recursive
+          git submodule update --init --remote --recursive
+
+      - name: Commit and push when changed
+        run: |
+          if git diff --quiet --submodule=diff -- .gitmodules browser-use openclaw windieos; then
+            echo "No submodule updates to commit."
+            exit 0
+          fi
+
+          git add .gitmodules browser-use openclaw windieos
+          git commit -m "chore(submodules): auto-update submodule pointers"
+          git push origin HEAD:main
