@@ -1,9 +1,12 @@
 [submodule "browser-use"]
 	path = browser-use
 	url = https://github.com/browser-use/browser-use.git
+	branch = main
 [submodule "windieos"]
 	path = windieos
 	url = https://github.com/buiilding/WindieOS
+	branch = main
 [submodule "openclaw"]
 	path = openclaw
 	url = https://github.com/openclaw/openclaw.git
+	branch = main
