@@ -8,6 +8,8 @@ Work style: telegraph; noun-phrases ok; drop grammar; min tokens.
 - “Make a note” => edit AGENTS.md (shortcut; not a blocker). Ignore `CLAUDE.md`.
 - Need upstream file: stage in `/tmp/`, then cherry-pick; never overwrite tracked.
 - Bugs: add regression test when it fits.
+- After each non-trivial feature/fix, write tests immediately while context is fresh (same-task context, same turn). This usually improves test quality and often exposes implementation bugs.
+- UI-only visual tweaks can skip test additions when coverage would be low-value; otherwise default to adding tests.
 - Keep files <~500 LOC; split/refactor as needed.
 - Commits: Conventional Commits (`feat|fix|refactor|build|ci|chore|docs|style|perf|test`).
 - Editor: `code <path>`.
