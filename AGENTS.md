@@ -56,7 +56,7 @@ Work style: telegraph; noun-phrases ok; drop grammar; min tokens.
 - ABSOLUTELY NEVER run destructive git operations (e.g., `git reset --hard`, `rm`, `git checkout`/`git restore` to an older commit) unless the user gives an explicit, written instruction in this conversation. Treat these commands as catastrophic; if you are even slightly unsure, stop and ask before touching them. (When working within Cursor or Codex Web, these git limitations do not apply; use the tooling's capabilities as needed.)
 - Never use `git restore` (or similar commands) to revert files you didn't author; coordinate with other agents instead so their in-progress work stays intact.
 - Prefer HTTPS remotes; flip SSH->HTTPS before pull/push.
-- Commit helper on PATH: `committer` (bash). Prefer it; if repo has `./scripts/committer`, use that.
+- Commit helper on PATH: `committer` (bash). Prefer it; this repo also ships `./scripts/committer` executable. Use `./scripts/committer` directly.
 - Commit message: Conventional Commit subject + short description body (when it helps review). Example:
   - `feat(frontend-dashboard): delete semantic memory entries`
   - blank line
