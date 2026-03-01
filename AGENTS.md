@@ -90,6 +90,14 @@ Work style: telegraph; noun-phrases ok; drop grammar; min tokens.
 - Unrecognized changes: assume other agent; keep going; focus your changes. If it causes issues, stop + ask user.
 - Leave breadcrumb notes in thread.
 
+## WindieOS Minimal Chat Pill Note
+- Linux double-flicker after screenshot: root cause was overlay awaiting state not latched across cross-window phase timing (plus pre-hide show flash path).
+- Stable fix contract:
+- collapse path hide-only (`hide-chatbox`; no pre-hide `show-chatbox`).
+- await indicator latch from shared `response-overlay-phase` (`tool-call|tool-output|awaiting-first-chunk`) and keep through transient `idle`.
+- clear latch on `streaming|complete|error` or when response content is visible.
+- typing indicator should be mounted in stable awaiting shell; no await<->response animation in minimal pill loop.
+
 ### committer
 - Commit helper (PATH). Stages only listed paths; required here. Repo may also ship `scripts/committer`.
 
